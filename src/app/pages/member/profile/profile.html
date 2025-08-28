@@ -1,0 +1,22 @@
+<div class="h-[90vh] flex justify-center items-center">
+  <div class="p-10 w-[25%] shadow-lg rounded-3xl border border-gray-200">
+    <div class="text-center">
+      <span class="text-2xl font-bold">ข้อมูลส่วนตัว</span>
+    </div>
+
+    <div class="flex flex-col mt-10 gap-10 text-xl">
+      <div class="flex justify-between">
+        <span>ชื่อผู้ใช้:</span>
+        <span>{{ user()?.fullname }}</span>
+      </div>
+      <div class="flex justify-between">
+        <span>อีเมล:</span>
+        <span>{{ user()?.email }}</span>
+      </div>
+      <div class="flex justify-between">
+        <span>บทบาท:</span>
+        <span>{{ user()?.role }}</span>
+      </div>
+    </div>
+  </div>
+</div>

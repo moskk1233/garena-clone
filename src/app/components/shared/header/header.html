@@ -1,0 +1,64 @@
+<nav class="shadow-md">
+  <div class="h-20 flex justify-between items-center w-[95%] mx-auto">
+    <div class="flex gap-5 justify-center items-center">
+      <div>
+        <img class="max-h-14 w-full object-contain" src="/assets/images/garena.png" alt="Garena">
+      </div>
+      <div class="text-2xl">
+        <span class="font-bold">ศูนย์เติมเงินอย่างเป็นทางการ</span>
+      </div>
+    </div>
+
+    <div class="text-xl">
+      <div class="flex justify-center items-center gap-7">
+        @if (!userService.isLogin()) {
+          @for (link of [
+            {
+              title: "เข้าสู่ระบบ",
+              icon: "login",
+              link: "/login"
+            },
+            {
+              title: "สมัครสมาชิก",
+              icon: "person_add",
+              link: "/register"
+            },
+          ]; track $index) {
+            <a [href]="link.link">
+              <div class="flex items-center justify-center gap-2 p-3 rounded-2xl hover:bg-gray-100 hover:cursor-pointer">
+                <mat-icon>{{ link.icon }}</mat-icon>
+                <span>{{ link.title }}</span>
+              </div>
+            </a>
+          }
+        } @else {
+          @for (link of [
+            {
+              title: "รายการเกม",
+              icon: "format_list_numbered",
+              link: "/member/list"
+            },
+            {
+              title: "โปรไฟล์",
+              icon: "account_circle",
+              link: "/member/profile"
+            }
+          ]; track $index) {
+            <a [href]="link.link">
+              <div class="flex items-center justify-center gap-2 p-3 rounded-2xl hover:bg-gray-100 hover:cursor-pointer">
+                <mat-icon>{{ link.icon }}</mat-icon>
+                <span>{{ link.title }}</span>
+              </div>
+            </a>
+          }
+        <button (click)="logout()">
+          <div class="flex items-center justify-center gap-2 p-3 rounded-2xl hover:bg-gray-100 hover:cursor-pointer">
+              <mat-icon>login</mat-icon>
+              <span>ออกจากระบบ</span>
+            </div>
+        </button>
+        }
+      </div>
+    </div>
+  </div>
+</nav>
